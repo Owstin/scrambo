@@ -1,13 +1,26 @@
-/* jshint node: true */
+import { Seed, Scrambler } from '../models/Scrambler';
 
-var scrambler = (function () {
-  function getRandomScramble() {
-    var posit = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    var p = "dU";
-    var pegs = [0, 0, 0, 0];
-    var seq = new Array();
-    var i, j;
-    var moves = new Array();
+export class ClockScrambler implements Scrambler {
+  randomSource: Seed = Math;
+
+  initialize(src: Seed) {
+    this.setRandomSource(src);
+  }
+
+  setRandomSource(src: Seed) {
+    this.randomSource = src;
+  };
+
+  setScrambleLength() {
+    return;
+  }
+
+  getRandomScramble() {
+    const posit = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const  p = "dU";
+    const pegs = [0, 0, 0, 0];
+    const seq = new Array();
+    const moves = new Array();
     moves[0] = new Array(1, 1, 1, 1, 1, 1, 0, 0, 0, -1, 0, -1, 0, 0, 0, 0, 0, 0);
     moves[1] = new Array(0, 1, 1, 0, 1, 1, 0, 1, 1, -1, 0, 0, 0, 0, 0, -1, 0, 0);
     moves[2] = new Array(0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, -1, 0, -1);
@@ -26,28 +39,29 @@ var scrambler = (function () {
     moves[12] = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, -1, 0, -1, 0, 0, 0, -1, 0, -1);
     moves[13] = new Array(1, 0, 1, 0, 0, 0, 1, 0, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
 
-    for (i = 0; i < 14; i++) {
-      seq[i] = Math.floor(randomSource.random() * 12) - 5;
+    for (let i = 0; i < 14; i++) {
+      seq[i] = Math.floor(this.randomSource.random() * 12) - 5;
     }
 
-    for (i = 0; i < 4; i++) {
-      pegs[i] = Math.floor(randomSource.random() * 2);
+    for (let i = 0; i < 4; i++) {
+      pegs[i] = Math.floor(this.randomSource.random() * 2);
     }
 
-    for (i = 0; i < 14; i++) {
-      for (j = 0; j < 18; j++) {
+    for (let i = 0; i < 14; i++) {
+      for (let j = 0; j < 18; j++) {
         posit[j] += seq[i] * moves[i][j];
       }
     }
-    for (j = 0; j < 18; j++) {
+
+    for (let j = 0; j < 18; j++) {
       posit[j] %= 12;
       while (posit[j] <= 0) posit[j] += 12;
     }
 
-    var scrambleString = "";
+    let scrambleString = "";
 
-    var turnToString = function (turn, amount) {
-      var suffix;
+    const turnToString = function (turn: string, amount: number) {
+      let suffix = "";
       if (amount === 0) {
         return "";
       }
@@ -66,9 +80,10 @@ var scrambler = (function () {
       return " " + turn + suffix;
     }
 
-    var addToScrambleString = function (pegs, UAmount, dAmount) {
-      scrambleString += "[" + pegs + "]" + turnToString("U", UAmount) + turnToString("d", dAmount) + " ";
-    }
+    const addToScrambleString =
+      function (pegs: string, UAmount: number, dAmount: number) {
+        scrambleString += `[${pegs}]${turnToString("U", UAmount)}${turnToString("d", dAmount)} `;
+      }
 
     addToScrambleString("UU/dd", seq[0], seq[4]);
     addToScrambleString("dU/dU", seq[1], seq[5]);
@@ -87,18 +102,4 @@ var scrambler = (function () {
       scramble_string: scrambleString
     };
   }
-
-  var setRandomSource = function (src) {
-    randomSource = src;
-  };
-
-  return {
-    /* mark2 interface */
-    version: "July 05, 2015",
-    initialize: setRandomSource,
-    getRandomScramble: getRandomScramble,
-
-    /* Other methods */
-  };
-})();
-module.exports = scrambler;
+}

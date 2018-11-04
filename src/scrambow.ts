@@ -1,5 +1,6 @@
 import { hashCode } from './util';
-import { scramblers, Scramble, Seed } from './scramblers';
+import { scramblers } from './scramblers';
+import { Seed, Scramble } from './models/Scrambler';
 
 export class Scrambow {
   type = '333';

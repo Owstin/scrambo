@@ -1,30 +1,17 @@
-export interface Scramble {
-  state: string;
-  scramble_string: string | '';
-}
-
-export interface Seed {
-  random: () => number;
-}
-
-interface Scrambler {
-  version?: string;
-  initialize: (randomSource: Seed) => Function | void;
-  setRandomSource: (randomSource: Seed) => void;
-  getRandomScramble: () => Scramble;
-  setScrambleLength: (length: number) => void;
-}
-
-interface Scramblers {
-  [key: string]: Scrambler
-}
+import { Scramblers } from './models/Scrambler';
+import { MinxScrambler } from './scramblers/minx';
+import { ClockScrambler } from './scramblers/clock';
+import { NNNScrambler } from './scramblers/nnn';
 
 export let scramblers: Scramblers = {};
-scramblers = require('./scramblers/NNN.js');
+scramblers['444'] = new NNNScrambler(4, 40);
+scramblers['555'] = new NNNScrambler(5, 60);
+scramblers['666'] = new NNNScrambler(6, 70);
+scramblers['777'] = new NNNScrambler(7, 100);
 scramblers['222'] = require('./scramblers/222.js');
 scramblers['333'] = require('./scramblers/333.js');
-scramblers.clock = require('./scramblers/clock.js');
-scramblers.minx = require('./scramblers/minx.js');
+scramblers.clock = new ClockScrambler();
+scramblers.minx = new MinxScrambler();
 scramblers.pyram = require('./scramblers/pyram.js');
 scramblers.sq1 = require('./scramblers/sq1.js');
 scramblers.skewb = require('./scramblers/skewb.js');
