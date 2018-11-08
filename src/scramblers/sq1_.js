@@ -386,6 +386,8 @@ var scrambler = (function () {
   _.Search_length1 = 0;
   _.Search_maxlen2 = 0;
   _.Search_sol_string = null;
+
+
   function Shape_$clinit() {
     Shape_$clinit = nullMethod;
     Shape_halflayer = [0, 3, 6, 12, 15, 24, 27, 30, 48, 51, 54, 60, 63];
@@ -544,6 +546,8 @@ var scrambler = (function () {
   _.Shape_parity = 0;
   _.top = 0;
   var Shape_BottomMove, Shape_ShapeIdx, ShapePrun, Shape_TopMove, Shape_TwistMove, Shape_halflayer;
+
+
   function Square_$clinit() {
     Square_$clinit = nullMethod;
     SquarePrun = [];
