@@ -1,7 +1,7 @@
 import { Seed, Scrambler } from '../models/Scrambler';
 
 export class ClockScrambler implements Scrambler {
-  randomSource: Seed = Math;
+  private randomSource: Seed = Math;
 
   initialize(src: Seed) {
     this.setRandomSource(src);

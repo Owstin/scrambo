@@ -50,7 +50,7 @@ export class NNNScrambler implements Scrambler {
     }
   }
 
-  parse() {
+  private parse() {
     // build lookup table
     for (let i = 0; i < this.flat2posit.length; i++) this.flat2posit[i] = -1;
     for (let i = 0; i < this.size; i++) {
@@ -76,7 +76,7 @@ export class NNNScrambler implements Scrambler {
     }
   }
 
-  appendmoves(sq: any[], axsl: any[], tl: number, la: number) {
+  private appendmoves(sq: any[], axsl: any[], tl: number, la: number) {
     for (let sl = 0; sl < tl; sl++) {  // for each move type
       if (axsl[sl]) {       // if it occurs
         let q = axsl[sl] - 1;
@@ -95,7 +95,7 @@ export class NNNScrambler implements Scrambler {
     }
   }
 
-  scramble() {
+  private scramble() {
     //tl=number of allowed moves (twistable layers) on axis -- middle layer ignored
     let tl = this.size;
     if (this.mult || (this.size & 1) != 0) tl--;
@@ -168,7 +168,7 @@ export class NNNScrambler implements Scrambler {
     }
   }
 
-  scramblestring(n: number) {
+  private scramblestring(n: number) {
     let s = "";
     for (let i = 0; i < this.seq[n].length - 1; i++) {
       if (i != 0) s += " ";
@@ -202,7 +202,7 @@ export class NNNScrambler implements Scrambler {
     return s;
   }
 
-  imagestring(nr: number) {
+  private imagestring(nr: number) {
     let s = "";
     let d = 0;
 
@@ -226,7 +226,7 @@ export class NNNScrambler implements Scrambler {
     return (s);
   }
 
-  doslice(f: number, d: number, q: number) {
+  private doslice(f: number, d: number, q: number) {
     //do move of face f, layer d, q quarter turns
     let f1 = 0, f2 = 0, f3 = 0, f4 = 0;
     const s2 = this.size * this.size;
