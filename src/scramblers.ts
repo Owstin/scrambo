@@ -2,6 +2,7 @@ import { Scramblers } from './models/Scrambler';
 import { MinxScrambler } from './scramblers/minx';
 import { ClockScrambler } from './scramblers/clock';
 import { NNNScrambler } from './scramblers/nnn';
+import { PyramScrambler } from './scramblers/pyram';
 import { TwoScrambler } from './scramblers/222';
 
 export let scramblers: Scramblers = {};
@@ -13,6 +14,5 @@ scramblers['222'] = new TwoScrambler();
 scramblers['333'] = require('./scramblers/333.js');
 scramblers.clock = new ClockScrambler();
 scramblers.minx = new MinxScrambler();
-scramblers.pyram = require('./scramblers/pyram.js');
-scramblers.sq1 = require('./scramblers/sq1.js');
+scramblers.pyram = new PyramScrambler();
 scramblers.skewb = require('./scramblers/skewb.js');
