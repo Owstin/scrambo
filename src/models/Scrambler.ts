@@ -1,7 +1,7 @@
 export interface Scrambler {
   version?: string;
   initialize: (randomSource: Seed) => Function | void;
-  setRandomSource?: (randomSource: Seed) => void;
+  setRandomSource: (randomSource: Seed) => void;
   getRandomScramble: () => Scramble;
   setScrambleLength: (length: number) => void;
 }
