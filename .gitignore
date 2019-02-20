@@ -5,3 +5,5 @@ dist/
 .nyc_output/
 yarn-error.log
 *.tgz
+.idea/*
+.DS_Store

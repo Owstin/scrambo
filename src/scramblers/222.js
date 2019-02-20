@@ -139,7 +139,7 @@ scrambler = (function () {
       }
       t = "";
       for (q = 0; q < sol.length; q++) {
-        t = "URF".charAt(sol[q] / 10) + "\'2 ".charAt(sol[q] % 10) + " " + t;
+        t = "URF".charAt(sol[q] / 10) + "\'2".charAt(sol[q] % 10) + " " + t;
       }
       return t;
     }
