@@ -7,4 +7,5 @@ module.exports = function (register) {
   require('./pyram')(register);
   require('./skewb')(register);
   require('./sq1')(register);
+  require('./mega')(register);
 }

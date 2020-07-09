@@ -496,6 +496,16 @@ describe('Scrambow', () => {
 
         expect(generated).toEqual(expectedScrambes);
       });
+
+      it('should match fto', () => {
+        const expectedScrambes = expected.setSeed(1).setType('fto').get(10);
+
+        console.log(expectedScrambes);
+
+        const generated = scrambler.setSeed(1).setType('fto').get(10);
+
+        expect(generated).toEqual(expectedScrambes);
+      });
     });
 
     describe('manual length', () => {
@@ -588,6 +598,13 @@ describe('Scrambow', () => {
       describe('rul', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('rul', expectedLength);
+          hasCorrectLength(result, expectedLength);
+        });
+      });
+
+      describe('fto', () => {
+        it('should generate a scramble with the expected length', () => {
+          const result = getScramble('fto', expectedLength);
           hasCorrectLength(result, expectedLength);
         });
       });
