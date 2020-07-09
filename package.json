@@ -1,6 +1,6 @@
 {
   "name": "scrambow",
-  "version": "1.5.0-beta.0",
+  "version": "1.5.0",
   "description": "Javascript Rubik's Cube Scramble Generator ",
   "repository": {
     "type": "git",
