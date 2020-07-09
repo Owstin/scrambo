@@ -1682,7 +1682,7 @@ var scrambler = (function () {
   }
 
   return {
-    initialize: function (randomSrc) { initialized = false; return ini(undefined, randomSrc, console.log); },
+    initialize: function (randomSrc) { initialized = false; return ini(undefined, randomSrc); },
     setRandomSrc,
     setScrambleLength: function () { return; },
     customScramble,
