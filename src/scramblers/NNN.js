@@ -187,8 +187,9 @@ const nnn = function (register) {
             if (k) s += "w"; // use w only for double layers on 4x4x4 and 5x5x5
           }
           else {
-            if (k) s += (k + 1);
+            if (k > 1) s += k + 1;
             s += "DLBURF".charAt(j);
+            if (k) s += "w";
           }
         }
 
