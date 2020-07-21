@@ -6,7 +6,7 @@ const minxsuff=["","2","'","2'"];
 const args = {
   "fto": {
     moves: [[["U","D"],["F","B"],["L","BR"],["R","BL"]],["","'"]], // FTO/Face-Turning Octa,
-    length: 25,
+    length: 30,
   },
 };
 
