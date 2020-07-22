@@ -1,4 +1,4 @@
-export function hashCode(str: string) {
+export function hashCode(str: string): number {
   let hash = 0;
 
   if (str.length === 0) {
