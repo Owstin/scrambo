@@ -1,5 +1,5 @@
 import { ScramblerAliases, Scramblers, Register } from './types.js';
-import scramblerGenerators from './scramblers/index.js';
+import scrambleGenerators from './scramblers/index.js';
 
 export const aliases: ScramblerAliases = {};
 export const scramblers: Scramblers = {};
@@ -10,4 +10,4 @@ const register: Register = (scramblers, scramblerAliases) =>
     scramblers[name.toLowerCase()] = scrambler;
   };
 
-scramblerGenerators(register(scramblers, aliases));
+scrambleGenerators(register(scramblers, aliases));
