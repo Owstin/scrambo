@@ -5,7 +5,7 @@ export const aliases: ScramblerAliases = {};
 export const scramblers: Scramblers = {};
 
 const register: Register = (scramblers, scramblerAliases) =>
-  (name, scrambler, aliases = []): void => {
+  (name, scrambler, aliases = []) => {
     aliases.forEach(a => { scramblerAliases[a.toLowerCase()] = name; });
     scramblers[name.toLowerCase()] = scrambler;
   };
