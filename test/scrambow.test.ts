@@ -27,7 +27,7 @@ describe('Scrambow', () => {
     it('should default length to 20', () => {
       const result = new Scrambow();
       expect(result.length).toEqual(20);
-    });
+    })
 
     it('should throw an error if an unsupported type is given', () => {
       const message = /Invalid scrambler.+$/;
@@ -54,7 +54,7 @@ describe('Scrambow', () => {
         expect(result.setLength).toHaveBeenCalledTimes(1);
         expect(result.setLength).toHaveBeenCalledWith(length);
       });
-    });
+    })
   });
 
   describe('defaults', () => {
@@ -500,6 +500,8 @@ describe('Scrambow', () => {
       it('should match fto', () => {
         const expectedScrambes = expected.setSeed(1).setType('fto').get(10);
 
+        console.log(expectedScrambes);
+
         const generated = scrambler.setSeed(1).setType('fto').get(10);
 
         expect(generated).toEqual(expectedScrambes);
@@ -514,42 +516,44 @@ describe('Scrambow', () => {
         .setLength(length)
         .get()
         .map(s => s.scramble_string)
-        .join();
+        .join()
 
-      const getScrambleLength = (scrambleString: string) => scrambleString.split(/\s+/).length;
+      const hasCorrectLength = (scrambleString: string, length: number) => {
+        expect(scrambleString.split(/\s+/).length).toEqual(length);
+      }
 
       describe('4x4', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('444', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('5x5', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('555', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('6x6', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('666', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('7x7', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('777', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('skewb', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('skewb', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
@@ -559,51 +563,52 @@ describe('Scrambow', () => {
           const rows = result.split('\n');
           const scrambleString = rows.join(' ');
 
-          expect(getScrambleLength(scrambleString)).toEqual(expectedLength * rows.length + rows.length);
+          hasCorrectLength(scrambleString, expectedLength * rows.length + rows.length);
         });
       });
 
       describe('lse', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('lse', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('ru', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('ru', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('lu', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('lu', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('rud', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('rud', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('rul', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('rul', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
 
       describe('fto', () => {
         it('should generate a scramble with the expected length', () => {
           const result = getScramble('fto', expectedLength);
-          expect(getScrambleLength(result)).toEqual(expectedLength);
+          hasCorrectLength(result, expectedLength);
         });
       });
     });
   });
+
 });
