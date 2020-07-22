@@ -1,5 +1,6 @@
 import { hashCode } from './util';
-import { scramblers, aliases, Scramble, Seed } from './scramblers';
+import { scramblers, aliases } from './scramblers';
+import { Seed, Scramble } from './types';
 
 export class Scrambow {
   type = '333';
@@ -12,15 +13,15 @@ export class Scrambow {
     this.setType(type || this.type);
   }
 
-  init() {
+  init(): void {
     if (!scramblers.hasOwnProperty(this.type)) {
-      throw new Error(`Invalid scrambler, allowed: ${Object.keys(scramblers).join(', ')}`)
+      throw new Error(`Invalid scrambler, allowed: ${Object.keys(scramblers).join(', ')}`);
     }
 
     scramblers[this.type].initialize(this.seed);
   }
 
-  get(num: number = 1) {
+  get(num = 1): Scramble[] {
     const stack = Array<Scramble>(num);
 
     for(let i = 0; i < num; i++) {
@@ -30,7 +31,7 @@ export class Scrambow {
     return stack;
   }
 
-  setType(type?: string) {
+  setType(type?: string): this {
     if (!type) {
       return this;
     }
@@ -50,7 +51,7 @@ export class Scrambow {
     return lowerType;
   }
 
-  setSeed(seed?: number) {
+  setSeed(seed?: number): this {
     if (!seed) {
       return this;
     }
@@ -63,14 +64,14 @@ export class Scrambow {
         const x = Math.sin(hash++) * 10000;
         return x - Math.floor(x);
       }
-    }
+    };
 
     this.init();
 
     return this;
   }
 
-  setLength(length?: number) {
+  setLength(length?: number): this {
     if (!length) {
       return this;
     }
@@ -82,7 +83,7 @@ export class Scrambow {
     return this;
   }
 
-  setArgs(...args: string[]) {
+  setArgs(...args: string[]): this {
     if (!args.length) {
       return this;
     }
