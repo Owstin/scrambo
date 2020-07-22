@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
+    /* Basic Options */
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
     "outDir": "./dist",
     "lib": ["esnext"],
+
+    /* Strict Type-Checking Options */
     "strict": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts"

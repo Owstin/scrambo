@@ -1,7 +1,7 @@
 import cli from 'commander';
 import { Scrambow } from './scrambow';
-import { Scramble } from './types';
-import { version, name } from '../package.json';
+import { Scramble } from './scramblers';
+const { version, name } = require('../package.json');
 
 cli
   .name(name)
