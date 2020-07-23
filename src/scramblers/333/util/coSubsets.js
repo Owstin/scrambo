@@ -8,6 +8,6 @@ const coSubsets = {
   H: [1,2,1,2]
 };
 
-module.exports = {
+export {
   coSubsets
 }

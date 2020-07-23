@@ -1,6 +1,6 @@
-const base = require('./base');
-const { EP, CO } = require('./util/cubePositions');
-const { shift } = require('./util/helpers');
+import base from './base';
+import { EP, CO } from './util/cubePositions';
+import { shift } from './util/helpers';
 
 const lccp = function (register) {
   const scrambler = (function (scrambler) {
@@ -30,4 +30,4 @@ const lccp = function (register) {
   register('lccp', scrambler);
 }
 
-module.exports = lccp;
+export default lccp;

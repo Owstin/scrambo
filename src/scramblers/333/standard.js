@@ -1,4 +1,4 @@
-const base = require('./base');
+import base from './base';
 
 const standard = function (register) {
   const scrambler = (function (scrambler) {
@@ -26,4 +26,4 @@ const standard = function (register) {
   register('333', scrambler, ['3', '3x3', '3x3x3']);
 }
 
-module.exports = standard;
+export default standard;

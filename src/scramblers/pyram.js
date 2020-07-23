@@ -460,4 +460,4 @@ const pyram = function (register) {
   register('pyram', scrambler, ['pyra', 'pyraminx']);
 }
 
-module.exports = pyram;
+export default pyram;

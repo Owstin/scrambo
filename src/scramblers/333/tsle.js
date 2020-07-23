@@ -1,5 +1,5 @@
-const base = require('./base');
-const { shift } = require('./util/helpers');
+import base from './base';
+import { shift } from './util/helpers';
 
 const tsle = function (register) {
   const scrambler = (function (scrambler) {
@@ -40,4 +40,4 @@ const tsle = function (register) {
   register('tsle', scrambler);
 }
 
-module.exports = tsle;
+export default tsle;

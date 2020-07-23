@@ -15,7 +15,7 @@ const createArray = (length1, length2) => {
   return result;
 }
 
-module.exports = {
+export {
   shift,
   swap,
   sum,

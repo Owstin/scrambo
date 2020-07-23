@@ -1,5 +1,5 @@
-const base = require('./base');
-const { shift } = require('./util/helpers');
+import base from './base';
+import { shift } from './util/helpers';
 
 const cmllsune = function (register) {
   const scrambler = (function (scrambler) {
@@ -31,4 +31,4 @@ const cmllsune = function (register) {
   register('cmllsune', scrambler);
 }
 
-module.exports = cmllsune;
+export default cmllsune;

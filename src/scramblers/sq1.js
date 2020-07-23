@@ -1,5 +1,6 @@
 const sq1 = function (register) {
   const scrambler = (function () {
+    var _;
     function nullMethod() {
     }
 
@@ -773,4 +774,4 @@ const sq1 = function (register) {
   register('sq1', scrambler, ['square1', 'square-1', 'squan']);
 }
 
-module.exports = sq1;
+export default sq1;

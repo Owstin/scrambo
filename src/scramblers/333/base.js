@@ -14,6 +14,7 @@ const { swap, createArray } = require('./util/helpers');
 const { coSubsets } = require('./util/coSubsets');
 
 var scrambler = (function () {
+  var _;
   const nullMethod = () => { };
 
   function $clinit_CoordCube() {
@@ -39,11 +40,12 @@ var scrambler = (function () {
   /* Init Stuff: */
 
   function initCParity() {
-    for (let i = 0; i < 346; ++i) {
+    var i;
+    for (i = 0; i < 346; ++i) {
       CParity[i] = 0;
     }
 
-    for (let i = 0; i < 2768; ++i) {
+    for (i = 0; i < 2768; ++i) {
       CParity[i >>> 3] = (CParity[i >>> 3] | get8Parity((CPermS2R)[i]) << (i & 7));
     }
   }
@@ -85,7 +87,7 @@ var scrambler = (function () {
   }
 
   function initMCEPermPrun(callback) {
-    let check, corn, cornx, edge, edgex, idx, idxx, inv, m_0, mid, midx, select, sym, symx;
+    let check, corn, cornx, edge, edgex, i, idx, idxx, inv, j, m_0, mid, midx, select, sym, symx;
     let c = new CubieCube_0;
     let d = new CubieCube_0;
     let depth = 0;
@@ -506,10 +508,10 @@ var scrambler = (function () {
   }
 
   function $copy(cube, c) {
-    cube.cp = cp = c.cp.map(v => v);
-    cube.co = co = c.co.map(v => v);
-    cube.ep = ep = c.ep.map(v => v);
-    cube.eo = eo = c.eo.map(v => v);
+    cube.cp = c.cp.map(v => v);
+    cube.co = c.co.map(v => v);
+    cube.ep = c.ep.map(v => v);
+    cube.eo = c.eo.map(v => v);
   }
 
   function $getCPermSym(cube) {
@@ -1378,7 +1380,7 @@ var scrambler = (function () {
     for (let i = 0; i < 12; ++i) {
       Cnk[i][0] = 1;
       Cnk[i][i] = 1;
-      for (j = 1; j < i; ++j) {
+      for (let j = 1; j < i; ++j) {
         Cnk[i][j] = Cnk[i - 1][j - 1] + Cnk[i - 1][j];
       }
     }
@@ -1525,6 +1527,7 @@ var scrambler = (function () {
   }
 
   var initialized = false;
+  var search;
 
   const ini = function (callback, iniRandomFunc, statusCallback) {
     if (typeof statusCallback !== "function") {
@@ -1694,4 +1697,4 @@ var scrambler = (function () {
   }
 })();
 
-module.exports = scrambler;
+export default scrambler;

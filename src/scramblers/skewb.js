@@ -203,4 +203,4 @@ const skewb = function (register) {
   register('skewb', scrambler)
 }
 
-module.exports = skewb;
+export default skewb;

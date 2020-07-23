@@ -1,6 +1,6 @@
-const base = require('./base');
-const { shift } = require('./util/helpers');
-const { EP, CP } = require('./util/cubePositions');
+import base from './base';
+import { EP, CP } from './util/cubePositions';
+import { shift } from './util/helpers';
 
 const zbll = function (register) {
   const scrambler = (function (scrambler) {
@@ -30,4 +30,4 @@ const zbll = function (register) {
   register('zbll', scrambler, ['coll']);
 }
 
-module.exports = zbll;
+export default zbll;

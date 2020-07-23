@@ -61,7 +61,7 @@ const EO = {
  * cori:
  * */
 
-module.exports = {
+export {
   CP,
   CO,
   EP,

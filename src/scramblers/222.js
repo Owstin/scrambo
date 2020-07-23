@@ -390,4 +390,4 @@ const scrambler222 = function (register) {
   register('222', scrambler, ['2', '2x2', '2x2x2']);
 }
 
-module.exports = scrambler222;
+export default scrambler222;

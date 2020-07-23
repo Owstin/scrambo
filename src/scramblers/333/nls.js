@@ -1,5 +1,5 @@
-const base = require('./base');
-const { CO, CP, EP } = require('./util/cubePositions');
+import base from './base';
+import { CO, CP, EP } from './util/cubePositions';
 
 const nls = function (register) {
   const scrambler = (function (scrambler) {
@@ -26,4 +26,4 @@ const nls = function (register) {
   register('nls', scrambler);
 }
 
-module.exports = nls;
+export default nls;

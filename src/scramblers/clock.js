@@ -1,3 +1,4 @@
+let randomSource;
 const rn = (n) => Math.floor(randomSource.random() * n);
 
 const clock = function (register) {
@@ -22,7 +23,7 @@ const clock = function (register) {
       [0, 0, 11, 0, 0, 0, 0, 0, 11, 1, 1, 1, 0, 1], //L
       [11, 0, 11, 0, 0, 0, 11, 0, 11, 1, 1, 1, 1, 1] //ALL
     ];
-    
+
     let Cnk = [], fact = [1];
     for (let i = 0; i < 32; ++i) {
       Cnk[i] = [];
@@ -49,10 +50,10 @@ const clock = function (register) {
       }
       return val;
     }
-  
+
     //invert table 0  1  2  3  4  5  6  7  8  9 10 11
     const invert = [-1, 1, -1, -1, -1, 5, -1, 7, -1, -1, -1, 11];
-  
+
     const randomState = () => {
       const ret = [];
       for (let i = 0; i < 14; i++) {
@@ -60,7 +61,7 @@ const clock = function (register) {
       }
       return ret;
     }
-  
+
     /**
      *	@return the length of the solution (the number of non-zero elements in the solution array)
      *		-1: invalid input
@@ -71,23 +72,23 @@ const clock = function (register) {
       }
       return solveIn(14, clock, solution);
     }
-  
+
     const swap = (arr, row1, row2) => {
       let tmp = arr[row1];
       arr[row1] = arr[row2];
       arr[row2] = tmp;
     }
-  
+
     const addTo = (arr, row1, row2, startidx, mul) => {
       let length = arr[0].length;
       for (let i = startidx; i < length; i++) {
         arr[row2][i] = (arr[row2][i] + arr[row1][i] * mul) % 12;
       }
     }
-  
+
     //linearly dependent
     const ld_list = [7695, 42588, 47187, 85158, 86697, 156568, 181700, 209201, 231778];
-  
+
     const GaussianElimination = (arr) => {
       let m = 14;
       let n = arr[0].length;
@@ -131,11 +132,11 @@ const clock = function (register) {
       }
       return 0;
     }
-  
+
     const solveIn = (k, numbers, solution) => {
       let n = 18;
       let min_nz = k + 1;
-  
+
       for (let idx = 0; idx < Cnk[n][k]; idx++) {
         let val = select(n, k, idx);
         let isLD = false;
@@ -196,7 +197,7 @@ const clock = function (register) {
       }
       return min_nz == k + 1 ? -1 : min_nz;
     }
-  
+
     const backSubstitution = (arr) => {
       let n = arr[0].length;
       for (let i = n - 2; i > 0; i--) {
@@ -207,16 +208,16 @@ const clock = function (register) {
         }
       }
     }
-  
+
     const turns = ['UR', 'DR', 'DL', 'UL', 'U', 'R', 'D', 'L', 'ALL'];
-  
+
     const getRandomScramble = () => {
       let rndarr = randomState();
       let solution = [];
       solution.length = 18;
       Solution(rndarr, solution);
       let scramble = '';
-  
+
       for (let x = 0; x < 9; x++) {
         let turn = solution[x];
         if (turn == 0) {
@@ -269,4 +270,4 @@ const clock = function (register) {
   register('clock', scrambler);
 }
 
-module.exports = clock;
+export default clock;
