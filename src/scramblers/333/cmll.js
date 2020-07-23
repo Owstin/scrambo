@@ -1,5 +1,5 @@
-const base = require('./base');
-const { shift } = require('./util/helpers');
+import base from './base';
+import { shift } from './util/helpers';
 
 const cmll = function (register) {
   const scrambler = (function (scrambler) {
@@ -30,4 +30,4 @@ const cmll = function (register) {
   register('cmll', scrambler, ['l10p']);
 }
 
-module.exports = cmll;
+export default cmll;

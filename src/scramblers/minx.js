@@ -88,6 +88,7 @@ const minx = function (register) {
       };
     }
 
+    var randomSource;
     var setRandomSource = function (src) {
       randomSource = src;
     };
@@ -108,4 +109,4 @@ const minx = function (register) {
   register('minx', scrambler, ['mega', 'megaminx']);
 }
 
-module.exports = minx;
+export default minx;

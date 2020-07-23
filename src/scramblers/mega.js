@@ -1,3 +1,4 @@
+let randomSource;
 const rn = (n) => Math.floor(randomSource.random() * n);
 const rndEl = (n) => n[rn(n.length)];
 
@@ -31,7 +32,7 @@ const args = {
 
 // var edges = {
 //   '4edge': ["r b2",["b2 r'","b2 U2 r U2 r U2 r U2 r"],["u"]],
-//   '5edge': ["r R b B",["B' b' R' r'","B' b' R' U2 r U2 r U2 r U2 r"],["u","d"]], 
+//   '5edge': ["r R b B",["B' b' R' r'","B' b' R' U2 r U2 r U2 r U2 r"],["u","d"]],
 //   '6edge': ["3r r 3b b",["3b' b' 3r' r'","3b' b' 3r' U2 r U2 r U2 r U2 r","3b' b' r' U2 3r U2 3r U2 3r U2 3r","3b' b' r2 U2 3r U2 3r U2 3r U2 3r U2 r"],["u","3u","d"]],
 //   '7edge': ["3r r 3b b",["3b' b' 3r' r'","3b' b' 3r' U2 r U2 r U2 r U2 r","3b' b' r' U2 3r U2 3r U2 3r U2 3r","3b' b' r2 U2 3r U2 3r U2 3r U2 3r U2 r"],["u","3u","3d","d"]]
 // };
@@ -168,4 +169,4 @@ const registerMega = function (register) {
   // }
 }
 
-module.exports = registerMega;
+export default registerMega;

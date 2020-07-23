@@ -1,5 +1,5 @@
-const base = require('./base');
-const { shift } = require('./util/helpers');
+import base from './base';
+import { shift } from './util/helpers';
 
 const scramble2gll = function (register) {
   const scrambler = (function (scrambler) {
@@ -28,4 +28,4 @@ const scramble2gll = function (register) {
   register('2gll', scrambler);
 }
 
-module.exports = scramble2gll;
+export default scramble2gll;

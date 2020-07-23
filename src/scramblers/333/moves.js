@@ -70,4 +70,4 @@ const moves = function (register) {
   register('rul', scrambler([['R', 'L'], ['U']], 24));
 }
 
-module.exports = moves;
+export default moves;

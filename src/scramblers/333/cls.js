@@ -1,5 +1,5 @@
-const base = require('./base');
-const { shift, sum } = require('./util/helpers');
+import base from './base';
+import { shift, sum } from './util/helpers';
 
 const cls = function (register) {
   const scrambler = (function (scrambler) {
@@ -111,4 +111,4 @@ const cls = function (register) {
   register('cls', scrambler);
 }
 
-module.exports = cls;
+export default cls;

@@ -1,4 +1,4 @@
-const nnn = function (register) {
+const scrambleNNN = function (register) {
   const scrambler = function (size, length, mult) {
     var randomSource;
     var seqlen = length;
@@ -366,4 +366,4 @@ const nnn = function (register) {
   register('777', scrambler(7, 100, true), ['7', '7x7', '7x7x7']);
 }
 
-module.exports = nnn;
+export default scrambleNNN;

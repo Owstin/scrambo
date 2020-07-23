@@ -1,4 +1,4 @@
-const base = require('./base');
+import base from './base';
 
 const edges = function (register) {
   const scrambler = (function (scrambler) {
@@ -26,4 +26,4 @@ const edges = function (register) {
   register('edges', scrambler);
 }
 
-module.exports = edges;
+export default edges;

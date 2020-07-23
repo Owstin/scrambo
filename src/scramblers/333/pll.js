@@ -1,4 +1,4 @@
-const base = require('./base');
+import base from './base';
 
 const pll = function (register) {
   const scrambler = (function (scrambler) {
@@ -26,4 +26,4 @@ const pll = function (register) {
   register('pll', scrambler);
 }
 
-module.exports = pll;
+export default pll;

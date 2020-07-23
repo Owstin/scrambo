@@ -1,5 +1,5 @@
-var base = require('./base');
-var { shift, sum } = require('./util/helpers');
+import base from './base';
+import { shift, sum } from './util/helpers';
 
 const ble = function (register) {
   const scrambler = (function (scrambler) {
@@ -34,4 +34,4 @@ const ble = function (register) {
   register('ble', scrambler);
 }
 
-module.exports = ble;
+export default ble;
