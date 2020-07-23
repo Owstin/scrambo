@@ -40,12 +40,11 @@ var scrambler = (function () {
   /* Init Stuff: */
 
   function initCParity() {
-    var i;
-    for (i = 0; i < 346; ++i) {
+    for (let i = 0; i < 346; ++i) {
       CParity[i] = 0;
     }
 
-    for (i = 0; i < 2768; ++i) {
+    for (let i = 0; i < 2768; ++i) {
       CParity[i >>> 3] = (CParity[i >>> 3] | get8Parity((CPermS2R)[i]) << (i & 7));
     }
   }
